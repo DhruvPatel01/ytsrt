@@ -69,6 +69,8 @@ int download_then_convert(void *input, int src_type, void *output, int rn_type, 
 
 	/* set curl_handle options which will NOT reassigned */
 	curl_easy_setopt(curl_handle, CURLOPT_USERAGENT, ua);
+	curl_easy_setopt(curl_handle, CURLOPT_SSL_VERIFYPEER, FALSE);
+	curl_easy_setopt(curl_handle, CURLOPT_SSL_VERIFYHOST, FALSE);
     curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, write_memory_callback);
 
 	FILE *inListFile;

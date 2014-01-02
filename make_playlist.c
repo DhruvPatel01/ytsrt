@@ -52,6 +52,8 @@ int make_playlist(char *id,char *name_of_file)
 
 	CURL* handle = curl_easy_init();
 	curl_easy_setopt(handle, CURLOPT_WRITEFUNCTION, write_memory_callback);
+	curl_easy_setopt(handle, CURLOPT_SSL_VERIFYPEER, FALSE);
+	curl_easy_setopt(handle, CURLOPT_SSL_VERIFYHOST, FALSE);
 
 	struct memory_struct downloaded_data;
 	downloaded_data.memory = malloc(1);
