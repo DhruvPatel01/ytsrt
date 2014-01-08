@@ -229,7 +229,6 @@ int main(int argc, char *argv[])
 			} else if (rename == RN_MUL) {
 				fprintf(stderr, "\nSorry: --rename-multi(-R) is not supported in --convert(-c) mode\n");
 			} else {
-				printf("Reached here %s\n", outputFileName);
 				output_name_generator(targetLocation, outputFileName, "");
 			}
 
