@@ -208,6 +208,13 @@ int main(int argc, char *argv[])
 		}
 
 	} else if (convert) {
+		if (fromFile && rename == RN_SIN) {
+			fprintf(stderr, "\nSorry: you can't give single name in --from-file(-f) mode\n");
+			return 1;
+		} else if (rename == RN_MUL) {
+			fprintf(stderr, "\nSorry: --rename-multi(-R) is not supported in --convert(-c) mode\n");
+			return 1;
+		}
 		
 		while (1) {
 			if (fromFile) {
@@ -221,19 +228,13 @@ int main(int argc, char *argv[])
 				short exit = fscanf(outListFile, "%[^\n]\n", outputFileName);
 				if (exit == EOF)
 					rn_file_shortage = TRUE;
-			} else if (fromFile && rename == RN_SIN) {
-				fprintf(stderr, "\nSorry: you can't give single name in --from-file(-f) mode\n");
-				return 1;
-			} else if (fromURL && rename == RN_SIN) {
-				/* do nothing, name is already set */
-			} else if (rename == RN_MUL) {
-				fprintf(stderr, "\nSorry: --rename-multi(-R) is not supported in --convert(-c) mode\n");
 			} else {
 				output_name_generator(targetLocation, outputFileName, "");
 			}
 
-
-			convert_to_srt(targetLocation, SRC_FILE, 0, outputFileName);
+			if (convert_to_srt(targetLocation, SRC_FILE, 0, outputFileName)) {
+				fprintf(stderr, "\nConverted %s to %s successfully.\n", targetLocation, outputFileName);
+			}
 
 			if (fromFile)
 				continue;
