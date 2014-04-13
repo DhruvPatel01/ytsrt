@@ -26,7 +26,7 @@
 #include "funct_declarations.h"
 
 /* make_playlist : creates playlist file from id and saves file on harddisk 
- * \param url: string containing valid url to playlist
+ * \param id: unique playlist id
  * \param name_of_file: name of the playlist file created 
  * \return 1==!OK 0==OK
 */
@@ -34,7 +34,7 @@
 int make_playlist(char *id,char *name_of_file)
 {
 	short is_next = 0;/*true if there is next page*/
-	char pl_id[20];
+	char pl_id[50];
 	strcpy(pl_id,id);
 
 	FILE *outFile = fopen(name_of_file,"w");
