@@ -1,3 +1,5 @@
+<p>This tool is not under active development. You should use any other tools to download subtitles, like Google2SRT or youtube-dl</p>
+
 <h1>ytsrt</h1>
 <h3>a tool to download bulk subtitles from YouTube</h3>
 <p><br /></p>
@@ -191,8 +193,3 @@ dir #to list all files and folders of folder where you are at present</code></pr
 <li>Program may crash if you have not provided valid input. So make sure you have provided valid input.</li>
 </ul>
 <p><br /></p>
-<h2><a name=report_bugs></a>Report Bugs</h2>
-<p>To report bugs you can contact <a href="mailto:dhruv.nanosoft@gmail.com">me</a>. Please give good ammount of details like what was url or attach the url list file.</p>
-<p>There may many bugs in conversion, because I had not tested mush cases for conversion, so if you found any bugs major or minor please let me know. in this case attach xml file you are trying to convert, or zip of xmls you are trying to convert.</p>
-<p>[[members limit=20]]
-[[download_button]]</p>
